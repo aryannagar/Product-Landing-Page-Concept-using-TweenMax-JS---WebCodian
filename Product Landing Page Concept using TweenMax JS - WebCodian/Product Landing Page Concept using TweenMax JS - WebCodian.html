@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Charm:700" rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/4417df8e36.js"></script>
+    <!-- TweenMax CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+
+    <style>
+        body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100vh;
+      background: #323233;
+      color: #fff;
+}
+
+.nav ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+}
+
+.nav ul li {
+      list-style: none;
+      line-height: 2.875rem;
+      padding: 1rem 2rem;
+      margin: 0 1rem;
+}
+
+.hamburger {
+      position: fixed;
+      right: 1.25rem;
+      padding: 1rem 0 0 0;
+      width: 2.5rem;
+      height: 3.75rem;
+}
+
+.one, .two, .three {
+      position: absolute;
+      background: #fff;
+      width: 1.875rem;
+      height: 0.125rem;
+}
+
+.two, .three {
+      margin-top: 0.75rem;
+}
+
+.account {
+      position: fixed;
+      right: 6.5625rem;
+}
+
+.logo {
+      position: fixed;
+      left: 6.25rem;
+      font-family: "Charm";
+      font-weight: bolder;
+      font-size: 1.375rem;
+      color: #752abb;
+}
+
+.search {
+      position: fixed;
+      right: 10rem;
+      color: #752abb;
+}
+
+.contact {
+      left: -1.5625rem;
+      top: 11.25rem;
+      padding: 25rem 93.4375rem;
+      transform: rotate(90deg);
+      position: fixed;
+}
+
+.tag {
+      top: 10.375rem;
+      left: 9.5rem;
+      padding: 0.625rem 1.875rem;
+      position: fixed;
+}
+
+.circle {
+      top: 25.375rem;
+      left: 9.5rem;
+      padding: 0.625rem 1.875rem;
+      position: fixed;
+}
+
+.year {
+      top: 36.125rem;
+      left: 76.25rem;
+      font-family: sans-serif;
+      color: #752abb;
+      font-size: 1.375rem;
+      letter-spacing: 1.875rem;
+      padding: 0.625rem 1.875rem;
+      position: fixed;
+}
+
+.arrow-left {
+      top: 48.75rem;
+      left: 2.625rem;
+      padding: 0.625rem 1.875rem;
+      position: fixed;
+}
+
+.arrow-right {
+      top: 48.125rem;
+      left: 8.25rem;
+      padding: 0.625rem 1.875rem;
+      position: fixed;
+}
+
+.cross {
+      top: 34.75rem;
+      left: 23.875rem;
+      font-size: 1.25rem;
+      padding: 0.625rem 1.875rem;
+      position: fixed;
+}
+
+.img img {
+      width: 50%;
+}
+
+.img {
+      top: 24.6%;
+      left: 38%;
+      z-index: 0;
+      position: fixed;
+}
+
+.title {
+      top: 21.875rem;
+      left: 57.8125rem;
+      font-size: 3.875rem;
+      font-family: "Charm";
+      line-height: 3.75rem;
+      color: #752abb;
+      position: absolute;
+}
+
+.line {
+      left: 22.5rem;
+      top: 12.875rem;
+      width: 10rem;
+      height: 0.0625rem;
+      background: #752abb;
+      position: fixed;
+}
+
+.e-shop {
+      left: 63.125rem;
+      top: 16.25rem;
+      padding: 0.625rem 1.875rem;
+      transform: rotate(90deg);
+      position: fixed;
+}
+
+.tag-line {
+      top: 37.5rem;
+      left: 45.625rem;
+      padding: 0.625rem 1.875rem;
+      position: fixed;
+}
+
+.social ul {
+      top: 70%;
+      right: 1.25rem;
+      list-style: none;
+      padding: 0.625rem 0.625rem;
+      color: #752abb;
+      position: fixed;
+}
+
+.social ul li {
+      font-size: 1.125rem;
+      margin: 1.5rem 0;
+}
+
+.title span {
+      opacity: 0;
+      animation: appear-text 0.0001s linear forwards;
+      animation-delay: 2s;
+}
+
+.title:after {
+      content: "";
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      background: #000;
+      position: absolute;
+      animation: rev-block 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+      animation-delay: 1.4s;
+}
+
+.tag-line span {
+      opacity: 0;
+      animation: appear-text 0.0001s linear forwards;
+      animation-delay: 2.2s;
+}
+
+.tag-line:after {
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      content: "";
+      background: #752abb;
+      position: absolute;
+      animation: rev-block 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+      animation-delay: 1.8s;
+}
+
+@keyframes rev-block {
+      0% {
+            left: 0%;
+            width: 0%;
+      }
+
+      50% {
+            left: 0;
+            width: 100%;
+      }
+
+      100% {
+            left: 100%;
+            width: 0%;
+      }
+}
+
+@keyframes appear-text {
+      0% {
+            opacity: 0;
+      }
+
+      100% {
+            opacity: 1;
+      }
+}
+
+img {
+      animation: appear-text 1s linear forwards;
+      animation-delay: 1.4s;
+      opacity: 0;
+}
+
+.img:after {
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      content: "";
+      background: #752abb;
+      position: absolute;
+      animation: rev-img 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+      animation-delay: 1s;
+}
+
+@keyframes rev-img {
+      0% {
+            left: 0%;
+            width: 0%;
+      }
+
+      50% {
+            left: 0;
+            width: 50%;
+      }
+
+      100% {
+            left: 50%;
+            width: 0%;
+      }
+}</style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <ul>
+                <li>
+                    <div class="account">
+                        <i class="fa fa-user"></i>
+                    </div>
+                </li>
+                <li>
+                    <div class="logo">
+                        <span>zone of trend  <!-- Your Logo Here --></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="search">
+                        <i class="fa fa-search"></i>
+                    </div>
+                </li>
+                <li>
+                    <div class="hamburger">
+                        <span class="one"></span>
+                        <span class="two"></span>
+                        <span class="three"></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="contact">
+            <span>Contact</span>
+        </div>
+
+        <div class="tag">
+            <span>A few clicks is all it takes. 
+                <br>
+                 Experience the difference
+            </span>
+        </div>
+
+        <div class="circle">
+            <i class="far fa-circle"></i>
+        </div>
+
+        <div class="year">2020</div>
+
+        <div class="arrow-left">
+            <i class="fa fa-arrow-left"></i>
+        </div>
+
+        <div class="arrow-right">
+            <i class="fa fa-arrow-right"></i>
+        </div>
+
+        <div class="cross">
+            <i class="fas fa-times"></i>
+        </div>
+
+        <div class="img">
+            <img src="img-2.svg">  <!-- Your Image will be here -->
+        </div>
+
+        <div class="title">
+            <span>zone of <br> &nbsp; &nbsp; trend</span>  <!-- Your hero title will be here -->
+        </div>
+
+        <div class="line"></div>
+
+        <div class="e-shop">
+            <span>E-shop</span>
+        </div>
+
+        <div class="tag-line">
+            <span>Discover Products</span> <!-- Your Tag line will be here -->
+        </div>
+
+        <div class="social">
+            <ul>
+                <li><i class="fab fa-facebook-f"></i></li>
+                <li><i class="fab fa-instagram"></i></li>
+                <li><i class="fab fa-twitter"></i></li>
+                <li><i class="fab fa-google-plus-g"></i></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Script will be here -->
+    <script>
+        TweenMax.from(".account", 1.6,{
+            delay: 0.8,
+            opacity: 0,
+            y: 20,
+            ease: Expo.easeInOut
+        });
+
+        TweenMax.from(".logo", 1.6,{
+            delay: 1,
+            opacity: 0,
+            y: 20,
+            ease: Expo.easeInOut
+        });
+
+        TweenMax.from(".search",1.4,{
+            delay: 1.2,
+            opacity: 0,
+            y: 23,
+            ease: Expo.easeInOut
+        });
+
+        TweenMax.from(".hamburger", 1.4,{
+            delay: 1.4,
+            opacity: 0,
+            y: 20,
+            ease: Expo.easeInOut
+        });
+
+        TweenMax.from(".contact", 1.4,{
+            delay: 1,
+            opacity: 0,
+            y: 40,
+            ease: Expo.easeInOut
+        });
+
+        TweenMax.from(".tag", 1.4,{
+            delay: 1,
+            opacity: 0,
+            y: -40,
+            ease: Expo.easeInOut
+        });
+
+        TweenMax.from(".e-shop", 2,{
+            delay: 1.6,
+            opacity: 0,
+            x: -40,
+            ease: Expo.easeInOut
+        });
+
+        TweenMax.from(".circle", 2,{
+            delay: 1.6,
+            opacity: 0,
+            x: -40,
+            ease: Expo.easeInOut
+        });
+
+        TweenMax.from(".cross",2,{
+            delay: 1,
+            opacity: 0,
+            x: -40,
+            rotation: 90,
+            ease: Expo.easeInOut
+        });
+
+        TweenMax.from(".year", 2,{
+            delay: 1.6,
+            opacity: 0,
+            x: -40,
+            ease: Expo.easeInOut
+        });
+
+        TweenMax.from(".arrow-left", 2,{
+            delay: 2.8,
+            opacity: 0,
+            x: 40,
+            ease: Expo.easeInOut
+        });
+
+        TweenMax.from(".arrow-right", 2,{
+            delay: 2.8,
+            opacity: 0,
+            x: -40,
+            ease: Expo.easeInOut
+        });
+
+        TweenMax.from(".line", 2,{
+            delay: 2.8,
+            opacity: 0,
+            x: -30,
+            ease: Expo.easeInOut
+        });
+
+        TweenMax.staggerFrom(".social ul li", 2,{
+            delay: 2.8,
+            opacity: 0,
+            y:40,
+            ease: Expo.easeInOut
+        }, 0.2);
+    </script>
+</body>
+</html>
